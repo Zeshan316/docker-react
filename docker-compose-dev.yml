@@ -1,0 +1,14 @@
+version: '2'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # environment:
+    #   - npm_config_fetch_retry_maxtimeout=6000
+    #   - npm_config_fetch_retry_mintimeout=1000
