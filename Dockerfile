@@ -2,10 +2,13 @@ FROM node:alpine3.18 as builder
 
 WORKDIR '/app'
 
-COPY package.json .
-RUN npm install
+RUN rm -rf build
+RUN rm -rf node_modules
 
-#RUN rm -rf build
+COPY package.json .
+RUN npm install --verbose
+
+
 COPY . .
 RUN npm run build
 
