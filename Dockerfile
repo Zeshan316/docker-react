@@ -1,6 +1,6 @@
 FROM node:alpine3.18 as builder
 
-WORKDIR /app
+WORKDIR '/app'
 
 COPY package.json .
 RUN npm install --force
@@ -12,5 +12,4 @@ RUN npm run build
 
 FROM nginx
 EXPOSE 80
-# COPY /app/build /usr/share/nginx/html
 COPY --from=builder /app/build /usr/share/nginx/html
