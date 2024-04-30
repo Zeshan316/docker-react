@@ -3,7 +3,7 @@ FROM node:alpine3.18 as builder
 WORKDIR '/app'
 
 COPY package.json .
-RUN npm install --force
+RUN npm install
 
 #RUN rm -rf build
 COPY . .
